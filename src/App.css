@@ -1,0 +1,12 @@
+.App {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.app__body {
+    display: flex;
+    flex-direction: column;
+    /* width: 90vw;
+    height: 90vh; */
+}

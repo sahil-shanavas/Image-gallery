@@ -1,0 +1,28 @@
+.image > img {
+    display: flex;
+    flex-direction: column;
+    margin: 0.3rem 0.3rem;
+    height: fit-content;
+}
+
+/* .image > img:hover {
+    box-shadow: 3px 5px 7px rgb(1, 1, 1, 0.5);
+    filter: brightness(20%);
+} */
+
+.image > div {
+    display: block;
+    position: relative;
+    width: 40%;
+    text-align: center;
+    top: -50%;
+    left: 30%;
+    font-size: 150%;
+    color:  rgb(230, 219, 219);
+}
+
+
+.image > div > .MuiSvgIcon-root {
+   height: 0.8em;
+}
+
