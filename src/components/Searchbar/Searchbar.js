@@ -11,6 +11,7 @@ function Searchbar({ fetchData }) {
     const [query, setQuery] = useState('');
     const accessKey = process.env.REACT_APP_ACCESSKEY;
 
+    //runs the first time Searchbar component mounts for updating the home page
     useEffect(() => {
         //fetch data from unsplash api
         fetch(`https://api.unsplash.com/search/photos/?per_page=21&query=wanderlust&client_id=${accessKey}`).then((response) => {
@@ -26,6 +27,7 @@ function Searchbar({ fetchData }) {
                 likes: result.likes,
                 author: result.user.name,
                 username: result.user.username,
+                description: result.alt_description,
                 tags: result.tags
             }})
             fetchData(data)
@@ -35,18 +37,8 @@ function Searchbar({ fetchData }) {
     }, [])
 
 
-    // useEffect(() => {
-    //     fetch(`https://api.unsplash.com/search/photos/?per_page=33&query=${query}&client_id=RRly0scSjGbrkcBlPEagfXZmAi7WSxBaNEP7V2Aw9Dg&count=20`).then((response) => {
-    //         if(response.ok) {
-    //             return response.json()
-    //         }
-    //     }).then((jsonResponse) => {
-    //         const data = jsonResponse.results.map((result) => `${result.urls.raw}`)
-    //         console.log(data)
-    //         fetchData(data)
-    //     })
-    // }, [query])
 
+    // event handler for listening to when the user submits a search query and fires up the fetch from unsplash API for the given query
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch(`https://api.unsplash.com/search/photos/?per_page=28&query=${query}&client_id=${accessKey}&count=21`).then((response) => {
@@ -62,13 +54,17 @@ function Searchbar({ fetchData }) {
                 likes: result.likes,
                 author: result.user.name,
                 username: result.user.username,
-                tags: result.tags
+                tags: result.tags,
+                description: result.alt_description
             }})
                 fetchData(data)
+                console.log(data)
+                console.log(jsonResponse)
             })
             setQuery('')
     }
 
+    // handles the change in the user input
     const handleChange = ({ target }) => {
         setQuery(target.value)
     }

@@ -6,6 +6,8 @@ import './Popup.css'
 
 function Popup({ imagepop, selectedImage }) {
 
+
+    //event handler function for checking whether the user clicks apart from the popup image and then updates the state of selectedImage
     const handleClick = (e) => {
         if(e.target.classList.contains('popup')) {
             selectedImage(null)
@@ -26,6 +28,7 @@ function Popup({ imagepop, selectedImage }) {
                         </div>
                     </div>
                     <div>
+                        <span>{imagepop.likes}</span>
                         <IconButton>
                             <FavoriteBorderIcon />
                         </IconButton>
@@ -34,7 +37,8 @@ function Popup({ imagepop, selectedImage }) {
                         </IconButton>
                     </div>
                 </div>
-                <img src={`${imagepop.url}&w=500&h=900&dpr=2`} alt=''/>
+                   <img src={`${imagepop.url}&w=500&h=900&dpr=2`} alt=''/>
+                   <p>{imagepop.description}</p>
                 { (imagepop.tags.length > 0) &&
                      <div className='image__card__footer'>
                         <div>

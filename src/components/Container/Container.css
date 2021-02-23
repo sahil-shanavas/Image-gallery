@@ -6,7 +6,7 @@
     margin-right: 2rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -52,6 +52,7 @@
     color: #4e4e4e;
     font-size: 3rem;
 }
+
 
 .error > .MuiSvgIcon-root {
     height: 3em;
